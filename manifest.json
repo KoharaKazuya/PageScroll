@@ -1,0 +1,14 @@
+{
+    "name": "Page Scroll",
+    "version": "0.1.0",
+    "manifest_version": 2,
+
+    "description": "スクロール後の画面が見やすくなるようにスクロール用を調節します",
+    "content_scripts": [
+    {
+        "matches": ["file:///*/*", "http://*/*", "https://*/*"],
+        "js": ["jquery-1.9.1.min.js", "Scroll.js"],
+        "all_frames": true
+    }
+    ]
+}
