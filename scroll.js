@@ -9,9 +9,7 @@ $(function() {
         'top': 0,
         'left': 0
     });
-    $cover.on('click', function() {
-        $(this).css('height', 0);
-    });
+    $cover.on('click', clearCover());
     $topElement.append($cover);
 
     $(document).keydown(function(e) {
@@ -34,7 +32,16 @@ $(function() {
     }
 
     function scrollUp() {
-        return scrollTo(selectDestination(0.5, false));
+        if ($cover.css('height').indexOf('0') !== 0) {
+            if ($topElement.scrollTop() > 0) {
+                return scrollTo(selectDestination(0.5, false));
+            } else {
+                clearCover();
+                return true;
+            }
+        } else {
+            return false;
+        }
     }
 
     function scrollTo($target) {
@@ -101,5 +108,9 @@ $(function() {
         } else {
             return $list.eq(largestIndex);
         }
+    }
+
+    function clearCover() {
+        $cover.css('height', 0);
     }
 });
