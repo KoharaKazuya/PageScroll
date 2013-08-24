@@ -56,7 +56,7 @@ $(function() {
     }
 
     function selectInArea(border, isDown) {
-        var screenHeight = $(window).height();
+        var screenHeight = window.innerHeight ? window.innerHeight : $(window).height(); // $(window).height() は Chrome ではてなブックマークなどを見ると異常値になるため
         var offsetScreenTop = $topElement.scrollTop();
         var offsetScreenBottom = offsetScreenTop + screenHeight;
         var offsetBorder = offsetScreenTop + screenHeight * border;
