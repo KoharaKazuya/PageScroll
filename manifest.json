@@ -1,6 +1,6 @@
 {
     "name": "Page Scroll",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "manifest_version": 2,
 
     "description": "スクロール後の画面が見やすくなるようにスクロール用を調節します",
