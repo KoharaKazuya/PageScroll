@@ -9,7 +9,7 @@ $(function() {
         'top': 0,
         'left': 0
     });
-    $cover.on('click', clearCover());
+    $cover.on('click', clearCover);
     $topElement.append($cover);
 
     $(document).keydown(function(e) {
