@@ -47,7 +47,7 @@ $(function() {
 
     function scrollTo($target) {
         if ($target) {
-            $cover.css('height', $target.offset().top);
+            $cover.css('height', $target.offset().top / $topElement.css('zoom')); // $cover は $topElement 直下なので、$topElement 以外の zoom の影響は受けない
             $topElement.animate({
                 scrollTop: $target.offset().top
             }, {
