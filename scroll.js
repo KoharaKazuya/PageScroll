@@ -1,3 +1,4 @@
+(function($) {
 $(function() {
     var $topElement = $('body');
     var $cover = $('<div>').css({
@@ -114,3 +115,4 @@ $(function() {
         $cover.css('height', 0);
     }
 });
+})(jQuery);
