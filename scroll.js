@@ -42,7 +42,9 @@ $(function() {
             $cover.css('height', $target.offset().top);
             $topElement.animate({
                 scrollTop: $target.offset().top
-            }, 'normal', 'swing');
+            }, {
+                queue: false
+            });
             return true;
         }
         return false;
