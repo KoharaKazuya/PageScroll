@@ -70,7 +70,7 @@ $(function() {
         var offsetScreenTop = $topElement.scrollTop();
         var offsetScreenBottom = offsetScreenTop + screenHeight;
         var offsetBorder = offsetScreenTop + screenHeight * border;
-        var $inArea = $topElement.find('*').filter(function() {
+        var $inArea = $topElement.find('*:not(nav *, aside *, [role="navigation"] *, [role="contentinfo"] *, [role="complementary"])').filter(function() {
             var top = $(this).offset().top;
             if (isDown) {
                 // below border, above bottom
