@@ -21,7 +21,7 @@ $(function() {
           var exceptions = ['nav *', 'aside *'];
           var e_roles = ['navigation', 'contentinfo', 'complementary'];
           for (var i=0; i<e_roles.length; i++) {
-            exceptions.push('[role="' + e_roles[i] + '"]')
+            exceptions.push('[role="' + e_roles[i] + '"] *')
           }
           var e_words = ['side', 'sub', 'nav'];
           for (var i=0; i<e_words.length; i++) {
@@ -67,8 +67,6 @@ $(function() {
       (function(target) {
         if (target === undefined) return;
 
-        console.log(target);
-        console.log(target.offset().top);
         $topElement.animate({
           scrollTop: target.offset().top
         }, 'fast', 'swing', {
