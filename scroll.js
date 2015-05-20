@@ -1,3 +1,4 @@
+(function($) {
 $(function() {
     var $topElement = $('body');
     var $cover = $('<div>').css({
@@ -9,7 +10,7 @@ $(function() {
         'top': 0,
         'left': 0
     });
-    $cover.on('click', clearCover());
+    $cover.on('click', clearCover);
     $topElement.append($cover);
 
     $(document).keydown(function(e) {
@@ -46,7 +47,7 @@ $(function() {
 
     function scrollTo($target) {
         if ($target) {
-            $cover.css('height', $target.offset().top);
+            $cover.css('height', $target.offset().top / $topElement.css('zoom')); // $cover は $topElement 直下なので、$topElement 以外の zoom の影響は受けない
             $topElement.animate({
                 scrollTop: $target.offset().top
             }, {
@@ -69,7 +70,7 @@ $(function() {
         var offsetScreenTop = $topElement.scrollTop();
         var offsetScreenBottom = offsetScreenTop + screenHeight;
         var offsetBorder = offsetScreenTop + screenHeight * border;
-        var $inArea = $topElement.find('*').filter(function() {
+        var $inArea = $topElement.find('*:not(nav *, aside *, [role="navigation"] *, [role="contentinfo"] *, [role="complementary"])').filter(function() {
             var top = $(this).offset().top;
             if (isDown) {
                 // below border, above bottom
@@ -114,3 +115,4 @@ $(function() {
         $cover.css('height', 0);
     }
 });
+})(jQuery);

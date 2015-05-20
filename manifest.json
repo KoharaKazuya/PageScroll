@@ -1,14 +1,20 @@
 {
-    "name": "Page Scroll",
-    "version": "0.1.1",
-    "manifest_version": 2,
-
-    "description": "スクロール後の画面が見やすくなるようにスクロール用を調節します",
-    "content_scripts": [
-    {
-        "matches": ["file:///*/*", "http://*/*", "https://*/*"],
-        "js": ["jquery-2.0.3.min.js", "scroll.js"],
-        "all_frames": true
-    }
-    ]
+  "name": "Page Scroll",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "スクロール後の画面が見やすくなるようにスクロール用を調節します",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "128": "icon.png"
+  },
+  "content_scripts": [{
+    "matches": ["file:///*/*", "http://*/*", "https://*/*"],
+    "js": ["lib/jquery-2.1.3.min.js", "src/pagescroll.js"]
+  }],
+  "options_ui": {
+    "page": "src/options.html",
+    "chrome_style": true
+  }
 }
